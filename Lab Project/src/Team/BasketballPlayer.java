@@ -2,7 +2,7 @@ package Team;
 
 public class BasketballPlayer extends Player {
   
-   // private int fouls;
+   
 
     // Constructor
     public BasketballPlayer(String name, String position, int jerseyNum, int playerMinutes) {

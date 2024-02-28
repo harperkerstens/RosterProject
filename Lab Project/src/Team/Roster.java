@@ -16,7 +16,7 @@ public abstract class Roster {
         this.teamSize = num;
         initTeam();
     }
-    public void setStarters(int size){
+    public void setStartersSize(int size){
         this.starters = new Player[size];
     }
 
@@ -117,6 +117,17 @@ public abstract class Roster {
             }
         }
     }
+
+    public Player getSpecificPlayer(int num){
+        return team[num];
+    }
+
+    public void setStarters(int spot, Player player){
+        this.starters[spot] = player;
+        System.out.println("Rosters ran");
+    }
+
+
 
     // Come back to allow for adding hockey player to the team
     // Implement in each class to add a specific instance of player
