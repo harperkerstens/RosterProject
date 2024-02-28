@@ -16,7 +16,7 @@ public class App {
 
         Roster team = handler.createTeam();
 
-            team.initTeam();
+            team.establishTeam();
 
         if(team instanceof BasketballRoster){
             System.out.println("Instance of BasketballRoster");

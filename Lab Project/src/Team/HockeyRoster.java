@@ -18,4 +18,8 @@ public class HockeyRoster extends Roster {
     slot++;
     }
 
+    public void establishTeam(){
+        
+    }
+
 }
