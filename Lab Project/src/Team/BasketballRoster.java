@@ -116,14 +116,16 @@ public class BasketballRoster extends Roster {
     }
 
     
-    //public BasketballPlayer getSpecificPlayer(int num){
-      //  return this.team[num];
-    //}
+    public BasketballPlayer getSpecificPlayer(int num){
+        System.out.println("Specific Player returned: " + team[num].getName());
+        return this.team[num];
+    }
 
   
-    //public void setStarters(int size, BasketballPlayer player) {
-      //  this.starters[size] = player;
-    //}
+    public void setStarters(int size, Player player) {
+        this.starters[size] = (BasketballPlayer) player;
+        System.out.println("The start position has been filled");
+}
 
     public void addToTeam(){
             
