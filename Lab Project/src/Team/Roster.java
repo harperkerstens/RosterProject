@@ -127,11 +127,11 @@ public abstract class Roster {
         System.out.println("Rosters ran");
     }
 
-
+    
 
     // Come back to allow for adding hockey player to the team
     // Implement in each class to add a specific instance of player
-     abstract void addToTeam();
+    public abstract void addToTeam(int rosterSpot, String name);
 
         public abstract void establishTeam();
 

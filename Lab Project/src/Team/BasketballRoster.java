@@ -127,8 +127,8 @@ public class BasketballRoster extends Roster {
         System.out.println("The start position has been filled");
 }
 
-    public void addToTeam(){
-            
+    public void addToTeam(int rosterSpot, String name){
+            this.team[rosterSpot] = new BasketballPlayer(name);
     }
 
 

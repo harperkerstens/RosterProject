@@ -1,13 +1,13 @@
 package Team;
 
-public abstract class Player {
+public  class Player {
 
     public String name = "empty";
     public String position = "empty";
     public int jerseyNum = 0;
     public int playerMinutes = 0;
     public String  playerNote = "empty";
-
+    String newLine = System.getProperty("line.separator");
  
     public void setName(String newName) {
         this.name = newName;
@@ -46,5 +46,26 @@ public abstract class Player {
         return this.playerNote;
     }
     
+    public void setJerseyNumber(int setNum){
+        this.jerseyNum = setNum;
+    }
+    
+    public int getJerseyNumber(){
+        return this.jerseyNum;
+    }
+
+    public String getInfo(){
+        String  toRe = "Player Name: " + this.getName() +  
+        newLine +
+        "Player Position: " + this.getPosition() + 
+        newLine +
+        "Player Jersey Number: " + this.getJerseyNumber() +
+        newLine +
+        "Player Minutes: " + this.getPlayerMinutes() + 
+        newLine +
+        "Player Note: " + this.getPlayernote();
+        
+        return toRe;
+    }
     
 }
