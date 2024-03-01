@@ -10,7 +10,7 @@ public class HockeyRoster extends Roster {
         initTeam();
     }
     public void initTeam(){
-        this.setStarters(6);
+        //this.setStarters(6);
     }
 
     public void addToTeam(){

@@ -2,7 +2,6 @@ package Team;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 public class BasketballRoster extends Roster {
    
     private int slot;
@@ -19,7 +18,7 @@ public class BasketballRoster extends Roster {
     
     public void establishTeam(){
         // Scanner input = new Scanner(System.in);
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader inputFix = new BufferedReader(new InputStreamReader(System.in));
 
         try {
             int run = 10;
@@ -27,20 +26,20 @@ public class BasketballRoster extends Roster {
 
             // run = input.nextInt();
             // String test = input.readLine();
-            run = Integer.parseInt(input.readLine());
+            run = Integer.parseInt(inputFix.readLine());
             while (run < 5 || run > 13){
                 System.out.println("Invalid Number");
                 System.out.println("How many players do you currently have? (Minimum 5, Max 13) ");
                 // run = input.nextInt();
-                run = Integer.parseInt(input.readLine());
+                run = Integer.parseInt(inputFix.readLine());
             }
            
 
            System.out.println("Please enter the players names"); 
             for(int i = 0; i < run; i++){
-                this.addToTeam(i, input);
+                this.addToTeam(i, inputFix);
             }
-            input.close();
+            inputFix.close();
         } catch(IOException exception){
             System.out.println("Exception: " + exception.getMessage());
         }

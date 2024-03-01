@@ -2,17 +2,17 @@ package Team;
 
 import java.util.Scanner;
 
-public abstract class Roster {
+public class Roster {
     private int teamSize;
     private Player team[];
     private int teamRecord;
-    Scanner input = new Scanner(System.in);
+    Scanner inputRoster = new Scanner(System.in);
     //private static int slot = 0;
     private Player starters[];
 
     public void setTeamSize(){
         System.out.println("How many players are on your team? ");
-        int num = input.nextInt();
+        int num = inputRoster.nextInt();
         this.teamSize = num;
         initTeam();
     }
@@ -36,10 +36,10 @@ public abstract class Roster {
 
     public void setTeamRecord(){
         System.out.println("What is the teams record?");
-        int setRecord = input.nextInt();
+        int setRecord = inputRoster.nextInt();
         if(setRecord < 0){
             System.out.println("Team record can't be negative, What is the team record?");
-            setRecord = input.nextInt();
+            setRecord = inputRoster.nextInt();
 
             if(setRecord < 0){setTeamRecord();}else{this.teamRecord = setRecord;}
             
@@ -54,7 +54,7 @@ public abstract class Roster {
         int setRecord = newRecord;
         if(setRecord < 0){
             System.out.println("Team record can't be negative, What is the team record?");
-            setRecord = input.nextInt();
+            setRecord = inputRoster.nextInt();
 
             if(setRecord < 0){setTeamRecord();}else{this.teamRecord = setRecord;}
             
@@ -124,15 +124,22 @@ public abstract class Roster {
 
     public void setStarters(int spot, Player player){
         this.starters[spot] = player;
-        System.out.println("Rosters ran");
+        
     }
 
     
 
     // Come back to allow for adding hockey player to the team
     // Implement in each class to add a specific instance of player
-    public abstract void addToTeam(int rosterSpot, String name);
 
-        public abstract void establishTeam();
+    
+    public  void addToTeam(int rosterSpot, String name){
+
+    }
+
+        public  void establishTeam(){
+
+        }
+        
 
 }
