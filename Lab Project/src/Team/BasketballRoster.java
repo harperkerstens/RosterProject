@@ -7,14 +7,14 @@ import Data.Util;
 public class BasketballRoster extends Roster {
    
     private int slot;
-    private BasketballPlayer team[];
-    private BasketballPlayer starters[];
+    //private BasketballPlayer team[];
+    //private BasketballPlayer starters[];
     public BasketballRoster(){
         this.setTeamSize(12);
         this.setStartersSize(5);
          initTeam();
-        this.team = new BasketballPlayer[12];
-        this.starters = new BasketballPlayer[5];
+        //this.team = new BasketballPlayer[12];
+        //this.starters = new BasketballPlayer[5];
     }
 
     
@@ -77,9 +77,10 @@ public class BasketballRoster extends Roster {
     // }
 
     public void getTeam(){
+       // System.out.println("Ran Basketball Rosters get team");
         for(int i = 0; i < team.length; i++){
-            if(team[i] != null){
-            System.out.println("Player " + (i + 1) + ": " + team[i].getName());
+            if(this.team[i] != null){
+            System.out.println("Player " + (i + 1) + ": " + this.team[i].getName());
             }else{
                 System.out.println("Player " + (i + 1) +": "+"Empty");
             }
@@ -120,13 +121,13 @@ public class BasketballRoster extends Roster {
 
     
     public BasketballPlayer getSpecificPlayer(int num){
-        System.out.println("Specific Player returned: " + team[num].getName());
-        return this.team[num];
+        //System.out.println("Specific Player returned: " + team[num].getName());
+        return (BasketballPlayer)team[num];
     }
 
   
     public void setStarters(int size, Player player) {
-        this.starters[size] = (BasketballPlayer) player;
+        starters[size] = (BasketballPlayer) player;
         System.out.println("The start position has been filled");
 }
 

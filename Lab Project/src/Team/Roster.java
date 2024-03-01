@@ -2,37 +2,43 @@ package Team;
 
 import java.util.Scanner;
 
-public class Roster {
-    private int teamSize;
-    private Player team[];
-    private int teamRecord;
-    Scanner inputRoster = new Scanner(System.in);
-    //private static int slot = 0;
-    private Player starters[];
+import Data.Util;
 
-    public void setTeamSize(){
-        System.out.println("How many players are on your team? ");
-        int num = inputRoster.nextInt();
-        this.teamSize = num;
-        initTeam();
-    }
+public class Roster {
+     int teamSize;
+    public Player team[];
+    public Player starters[];
+    private int teamRecord;
+    public int starterSize;
+    Scanner inputRoster = new Scanner(System.in);
+    //private int slot;
+    
+
+
     public void setStartersSize(int size){
         this.starters = new Player[size];
     }
 
     public void setTeamSize(int x){
         this.teamSize = x;
-        initTeam();
     }
 
+
+    // Must be called to set Arrays
     public void initTeam(){
         this.team =  new Player [teamSize];
+        this.starters = new Player[starterSize];
         }
+
 
     public int getTeamSize(){
         System.out.println("TEAM LENGTH IS:" + team.length);
         return this.teamSize;
     }
+
+    // Might get rid of this chunk
+    /* 
+
 
     public void setTeamRecord(){
         System.out.println("What is the teams record?");
@@ -68,18 +74,19 @@ public class Roster {
         System.out.println("Your teams record is: " + this.teamRecord);
         return this.teamRecord;
     }
+*/
+
+
+
+
 
     public void getTeam() {
-        System.out.println("Team Roster:");
-        for (int i = 0; i < team.length; i++) {
-            if (team[i] != null) {
-                System.out.println("Player " + (i + 1) + ":");
-                System.out.println("Name: " + team[i].getName());
-                System.out.println("Position: " + team[i].getPosition());
-                System.out.println("Player Minutes: " + team[i].getPlayerMinutes());
-                System.out.println(); // Print an empty line for better readability
-            } else {
-                System.out.println("Player " + (i + 1) + ": EMPTY"); // Print "EMPTY" if the slot is not filled
+        //System.out.println("Ran Basketball Rosters get team");
+        for(int i = 0; i < team.length; i++){
+            if(this.team[i] != null){
+            System.out.println("Player " + (i + 1) + ": " + this.team[i].getName());
+            }else{
+                System.out.println("Player " + (i + 1) +": "+"Empty");
             }
         }
     }
@@ -103,6 +110,8 @@ public class Roster {
         return this.team.length;
     }
 
+
+    // Should be implemented in each class to format to each specific type of sport
     public void getStarters(){
         System.out.println("Starting Roster:");
         for (int i = 0; i < starters.length; i++) {
@@ -113,13 +122,13 @@ public class Roster {
                 System.out.println("Player Minutes: " + starters[i].getPlayerMinutes());
                 System.out.println(); // Print an empty line for better readability
             } else {
-                System.out.println("Player " + (i + 1) + ": EMPTY"); // Print "EMPTY" if the slot is not filled
+                System.out.println("Player " + (i + 1) + ": EMPTY"); 
             }
         }
     }
 
     public Player getSpecificPlayer(int num){
-        return team[num];
+        return this.team[num];
     }
 
     public void setStarters(int spot, Player player){
@@ -133,8 +142,13 @@ public class Roster {
     // Implement in each class to add a specific instance of player
 
     
-    public  void addToTeam(int rosterSpot, String name){
-
+    public  void addToTeam(int slot, String name){
+             try {
+            String nameToSet = Util.getStringInput("What is the players name?");
+            this.team[slot] = new Player(nameToSet);
+        } catch (Exception e) {
+            System.out.println("Error:addToTeam " + e.getMessage());
+        } 
     }
 
         public  void establishTeam(){

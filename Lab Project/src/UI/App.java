@@ -19,14 +19,6 @@ public class App {
             // team.establishTeam();
             
 
-        if(team instanceof BasketballRoster){
-            System.out.println("Instance of BasketballRoster");
-        }
-
-        if(team instanceof HockeyRoster){
-            System.out.println("Instance of HockeyRoster");
-        }
-
 
         }
 }

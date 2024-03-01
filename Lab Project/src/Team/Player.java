@@ -8,6 +8,21 @@ public  class Player {
     public int playerMinutes = 0;
     public String  playerNote = "empty";
     String newLine = System.getProperty("line.separator");
+
+    public Player(){
+        this.name = "Not Set";
+        this.position = "Not Set";
+        this.jerseyNum = 0;
+        this.playerMinutes = 0;
+    }
+
+    public Player(String name){
+        this.name = name;
+        this.position = "Not set";
+        this.jerseyNum = 0;
+        this.playerMinutes = 0;
+    }
+
  
     public void setName(String newName) {
         this.name = newName;
