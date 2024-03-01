@@ -2,6 +2,8 @@ package Team;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import Data.Util;
 public class BasketballRoster extends Roster {
    
     private int slot;
@@ -18,59 +20,61 @@ public class BasketballRoster extends Roster {
     
     public void establishTeam(){
         // Scanner input = new Scanner(System.in);
-        BufferedReader inputFix = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedReader inputFix = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            int run = 10;
-            System.out.println("How many players do you currently have? (Minimum 5, Max 13) ");
+            Integer run = 10;
+            // System.out.println("How many players do you currently have? (Minimum 5, Max 13) ");
 
             // run = input.nextInt();
             // String test = input.readLine();
-            run = Integer.parseInt(inputFix.readLine());
+            // run = Integer.parseInt(inputFix.readLine());
+            run = Util.getIntegerInput("How many players do you currently have? (Minimum 5, Max 13) ");
             while (run < 5 || run > 13){
                 System.out.println("Invalid Number");
                 System.out.println("How many players do you currently have? (Minimum 5, Max 13) ");
                 // run = input.nextInt();
-                run = Integer.parseInt(inputFix.readLine());
+                // run = Integer.parseInt(inputFix.readLine());
+                run = Util.getIntegerInput("How many players do you currently have? (Minimum 5, Max 13) ");
             }
            
 
            System.out.println("Please enter the players names"); 
             for(int i = 0; i < run; i++){
-                this.addToTeam(i, inputFix);
+                this.addToTeam(i);
             }
-            inputFix.close();
-        } catch(IOException exception){
+            // inputFix.close();
+        } catch(Exception exception){
             System.out.println("Exception: " + exception.getMessage());
         }
-
     }
-        //Current issue does not set the players name
-    public void addToTeam(int slot, BufferedReader input){
-        System.out.println("What is the players name?" );
-        // Scanner input = new Scanner(System.in);
+
+    //Current issue does not set the players name
+    public void addToTeam(int slot){
         try {
-            String nameToSet = input.readLine();
+            String nameToSet = Util.getStringInput("What is the players name?");
             this.team[slot] = new BasketballPlayer(nameToSet);
-            // for (String nameToSet = input.readLine(); nameToSet != null; nameToSet = input.readLine()) {
-            //     this.team[slot] = new BasketballPlayer(nameToSet);
-            //     slot++;
-                
-            //  }
         } catch (Exception e) {
             System.out.println("Error:addToTeam " + e.getMessage());
-        }
-   
-        
-
-        // if (input.hasNext()) {
-        //     String nameToSet = input.readLine();
-        //     this.team[slot] = new BasketballPlayer(nameToSet);
-        //     slot++;
-        //     input.close();
-        // }
-       
+        }       
     }
+
+    //Current issue does not set the players name
+    // public void addToTeam(int slot, BufferedReader input){
+    //     System.out.println("What is the players name?" );
+    //     // Scanner input = new Scanner(System.in);
+    //     try {
+    //         String nameToSet = input.readLine();
+    //         this.team[slot] = new BasketballPlayer(nameToSet);
+    //         // for (String nameToSet = input.readLine(); nameToSet != null; nameToSet = input.readLine()) {
+    //         //     this.team[slot] = new BasketballPlayer(nameToSet);
+    //         //     slot++;
+                
+    //         //  }
+    //     } catch (Exception e) {
+    //         System.out.println("Error:addToTeam " + e.getMessage());
+    //     }       
+    // }
 
     public void getTeam(){
         for(int i = 0; i < team.length; i++){

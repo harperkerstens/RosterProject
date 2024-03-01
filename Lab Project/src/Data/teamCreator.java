@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import Team.Roster;
 import Team.BasketballRoster;
 import Team.HockeyRoster;
+import Data.Util;
 
 public class teamCreator implements saveTeam, loadTeam {
 
@@ -52,6 +53,21 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
         return teamInfo.toString();
     }
 
+    // public String getStringInput(String message) {
+    //     String result = "";        
+    //     try{  
+    //         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));                     
+    //         System.out.println(message);
+    //         result = input.readLine();
+    //     } catch(IOException e){
+    //         System.out.println("getStringInput: IOError Occured" + e.getLocalizedMessage());
+    //     } 
+    //     return result;
+    // }
+    
+    
+
+
 
 
 
@@ -66,9 +82,11 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
         try{
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
+
         
-        System.out.println("What sport does your team play?");
-        String type = input.readLine();
+        // System.out.println("What sport does your team play?");
+        // String type = input.readLine();
+        String type = Util.getStringInput("What sport does your team play?");
         //System.out.println("You entered: " + type);
         Roster roster = null;
         if(type.toLowerCase().equals("basketball")){
@@ -109,7 +127,9 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
         
         //String choice = "a";
         
-            String choice = input.readLine();
+            // String choice = input.readLine();
+        String choice = Util.getStringInput("");
+        System.out.println("Your choice was: " + choice);
 
         if(choice.toLowerCase().equals("v") ){
             roster.getTeam();
