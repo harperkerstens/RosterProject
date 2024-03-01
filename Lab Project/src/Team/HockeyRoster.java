@@ -4,7 +4,7 @@ import Data.Util;
 
 public class HockeyRoster extends Roster {
     
-    private Player team[];
+  
     private int slot;
     public HockeyRoster(){
         this.setTeamSize(23);

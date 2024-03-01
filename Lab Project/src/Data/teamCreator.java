@@ -134,20 +134,26 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
         if(choice.toLowerCase().equals("v") ){
             roster.getTeam();
         }
+        if(choice.toLowerCase().equals("e")){
+            System.out.println("Good Bye");
+            System.exit(0);
+            // running = false;
+            // return roster;
+        }
 
         if (choice.toLowerCase().equals("s")){
             System.out.println("Which player would you like to be a starter? (enter number)");
             roster.getTeam();
             //Set to players input minus 1 to respond to the next input
             //int numChoice = 1 -1;
-            int numChoice = Util.getIntegerInput() - 1;
+            int numChoice = Integer.parseInt(input.readLine());
             System.out.println("What position would you like them to start? (Enter number)");
 
             roster.getStarters();
             
             //Same as the other variable
             //int startChoice = 1 -1;
-            int startChoice = Util.getIntegerInput() - 1;
+            int startChoice = Integer.parseInt(input.readLine());
 
             roster.setStarters(startChoice, roster.getSpecificPlayer(numChoice));
 
@@ -166,7 +172,7 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
 
             //Get user input on what player theyd like to adjust
            // int userChoice = 1 -1;
-             int userChoice = Util.getIntegerInput() - 1;
+             int userChoice = Integer.parseInt(input.readLine());
 
             if(roster.getSpecificPlayer(userChoice) != null){
                 //If roster spot is populated
@@ -180,13 +186,13 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
 
             // Set to user choice
                 //String secondUserChoice = "v";
-                String secondUserChoice = Util.getStringInput();
+                String secondUserChoice = input.readLine();
 
                 if(secondUserChoice.toLowerCase().equals("n") ){
                     System.out.println("What would you like " + roster.getSpecificPlayer(userChoice).getName() + " name to be changed to?");
                     //Set to user input
                     //String changeName = "Draymond Green";
-                    String changeName = Util.getStringInput();
+                    String changeName = input.readLine();
 
                     roster.getSpecificPlayer(userChoice).setName(changeName);
                 }
@@ -194,28 +200,28 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
                     System.out.println("What would you like " + roster.getSpecificPlayer(userChoice).getName() + " position to be changed to?");
                     //Set to user input
                     //String changePosition = "Draymond Green";
-                    String changePosition = Util.getStringInput();
+                    String changePosition = input.readLine();
                     roster.getSpecificPlayer(userChoice).setPosition(changePosition);;
                 }
                 if(secondUserChoice.toLowerCase().equals("j") ){
                     System.out.println("What would you like " + roster.getSpecificPlayer(userChoice).getName() + " jersey number to be changed to?");
                     //Set to user input
                     //int changeJersey = 23;
-                    int changeJersey = Util.getIntegerInput();
+                    int changeJersey = Integer.parseInt(input.readLine());
                     roster.getSpecificPlayer(userChoice).setJerseyNumber(changeJersey);;
                 }
                 if(secondUserChoice.toLowerCase().equals("m") ){
                     System.out.println("What would you like " + roster.getSpecificPlayer(userChoice).getName() + " minutes to be changed to?");
                     //Set to user input
                     //int changeMin = 40;
-                    int changeMin = Util.getIntegerInput();
+                    int changeMin = Integer.parseInt(input.readLine());
                     roster.getSpecificPlayer(userChoice).setPlayerMinutes(changeMin);;
                 }
                 if(secondUserChoice.toLowerCase().equals("o")){
                     System.out.println("What would you like " + roster.getSpecificPlayer(userChoice).getName() + " player note to be changed to?");
                     //Set to user input
                    // String changeNote = "Run Isolation Play when man guarding is a mismatch";
-                   String changeNote = Util.getStringInput();
+                   String changeNote = input.readLine();
                     roster.getSpecificPlayer(userChoice).setPlayernote(changeNote);;
                 }
                 if(secondUserChoice.toLowerCase().equals("v")){
@@ -228,17 +234,11 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
                 System.out.println("What is the players name?");
                 //Set to be the users input
                // String addName = "JOE SMITH";
-                String addName = Util.getStringInput();
-                roster.addToTeam(userChoice + 1,addName);
+                String addName = input.readLine();
+                roster.addToTeam(userChoice,addName);
             }
 
-
-            //Doesnt Run
-            if(choice.toLowerCase().equals("e")){
-                System.out.println("Exit ran");
-                running = false;
-                return roster;
-            }
+           
 
             
             
