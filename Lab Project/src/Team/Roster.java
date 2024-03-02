@@ -8,7 +8,6 @@ public class Roster {
      int teamSize;
     public Player team[];
     public Player starters[];
-    private int teamRecord;
     public int starterSize;
     Scanner inputRoster = new Scanner(System.in);
     //private int slot;
@@ -16,7 +15,7 @@ public class Roster {
 
 
     public void setStartersSize(int size){
-        this.starters = new Player[size];
+        this.starterSize = size;
     }
 
     public void setTeamSize(int x){
@@ -36,52 +35,12 @@ public class Roster {
         return this.teamSize;
     }
 
-    // Might get rid of this chunk
-    /* 
-
-
-    public void setTeamRecord(){
-        System.out.println("What is the teams record?");
-        int setRecord = inputRoster.nextInt();
-        if(setRecord < 0){
-            System.out.println("Team record can't be negative, What is the team record?");
-            setRecord = inputRoster.nextInt();
-
-            if(setRecord < 0){setTeamRecord();}else{this.teamRecord = setRecord;}
-            
-        }else{
-            this.teamRecord = setRecord;
-        }
-        
-    }
-
-    public void setTeamRecord(int newRecord){
-        
-        int setRecord = newRecord;
-        if(setRecord < 0){
-            System.out.println("Team record can't be negative, What is the team record?");
-            setRecord = inputRoster.nextInt();
-
-            if(setRecord < 0){setTeamRecord();}else{this.teamRecord = setRecord;}
-            
-        }else{
-            this.teamRecord = setRecord;
-        }
-
-    }
-
-    public int getTeamRecord(){
-        System.out.println("Your teams record is: " + this.teamRecord);
-        return this.teamRecord;
-    }
-*/
-
-
+   
 
 
 
     public void getTeam() {
-        //System.out.println("Ran Basketball Rosters get team");
+        
         for(int i = 0; i < team.length; i++){
             if(this.team[i] != null){
             System.out.println("Player " + (i + 1) + ": " + this.team[i].getName());
@@ -138,8 +97,7 @@ public class Roster {
 
     
 
-    // Come back to allow for adding hockey player to the team
-    // Implement in each class to add a specific instance of player
+
 
     
     public  void addToTeam(int slot, String name){
@@ -151,6 +109,7 @@ public class Roster {
         } 
     }
 
+    //  Needs to be implimented in each sport to meet requirement of minimum and maximum players
         public  void establishTeam(){
 
         }

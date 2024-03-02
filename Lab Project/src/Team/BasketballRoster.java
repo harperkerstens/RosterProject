@@ -1,40 +1,25 @@
 package Team;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import Data.Util;
 public class BasketballRoster extends Roster {
    
-    private int slot;
-    //private BasketballPlayer team[];
-    //private BasketballPlayer starters[];
+    
+   
     public BasketballRoster(){
         this.setTeamSize(12);
         this.setStartersSize(5);
          initTeam();
-        //this.team = new BasketballPlayer[12];
-        //this.starters = new BasketballPlayer[5];
+  
     }
 
     
     public void establishTeam(){
-        // Scanner input = new Scanner(System.in);
-        // BufferedReader inputFix = new BufferedReader(new InputStreamReader(System.in));
 
         try {
             Integer run = 10;
-            // System.out.println("How many players do you currently have? (Minimum 5, Max 13) ");
-
-            // run = input.nextInt();
-            // String test = input.readLine();
-            // run = Integer.parseInt(inputFix.readLine());
             run = Util.getIntegerInput("How many players do you currently have? (Minimum 5, Max 13) ");
             while (run < 5 || run > 13){
                 System.out.println("Invalid Number");
                 System.out.println("How many players do you currently have? (Minimum 5, Max 13) ");
-                // run = input.nextInt();
-                // run = Integer.parseInt(inputFix.readLine());
                 run = Util.getIntegerInput("How many players do you currently have? (Minimum 5, Max 13) ");
             }
            
@@ -49,7 +34,7 @@ public class BasketballRoster extends Roster {
         }
     }
 
-    //Current issue does not set the players name
+
     public void addToTeam(int slot){
         try {
             String nameToSet = Util.getStringInput("What is the players name?");
@@ -59,25 +44,8 @@ public class BasketballRoster extends Roster {
         }       
     }
 
-    //Current issue does not set the players name
-    // public void addToTeam(int slot, BufferedReader input){
-    //     System.out.println("What is the players name?" );
-    //     // Scanner input = new Scanner(System.in);
-    //     try {
-    //         String nameToSet = input.readLine();
-    //         this.team[slot] = new BasketballPlayer(nameToSet);
-    //         // for (String nameToSet = input.readLine(); nameToSet != null; nameToSet = input.readLine()) {
-    //         //     this.team[slot] = new BasketballPlayer(nameToSet);
-    //         //     slot++;
-                
-    //         //  }
-    //     } catch (Exception e) {
-    //         System.out.println("Error:addToTeam " + e.getMessage());
-    //     }       
-    // }
 
     public void getTeam(){
-       // System.out.println("Ran Basketball Rosters get team");
         for(int i = 0; i < team.length; i++){
             if(this.team[i] != null){
             System.out.println("Player " + (i + 1) + ": " + this.team[i].getName());
@@ -88,6 +56,8 @@ public class BasketballRoster extends Roster {
     }
 
     public void getStarters(){
+        System.out.println();
+    
         if(starters[0] != null){
         System.out.println("Point Guard 1: " + starters[0].getName() );
         }else{
@@ -121,7 +91,7 @@ public class BasketballRoster extends Roster {
 
     
     public BasketballPlayer getSpecificPlayer(int num){
-        //System.out.println("Specific Player returned: " + team[num].getName());
+
         return (BasketballPlayer)team[num];
     }
 

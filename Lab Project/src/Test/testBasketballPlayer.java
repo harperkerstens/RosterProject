@@ -7,7 +7,7 @@ import Team.BasketballPlayer;
 public class testBasketballPlayer {
     
     @Test
-    public void testBasketballPlayer() {
+    public void testBasketballPlayerClass() {
         // Creating a BasketballPlayer object
         BasketballPlayer player = new BasketballPlayer("John Doe", "Center", 23, 30);
 
