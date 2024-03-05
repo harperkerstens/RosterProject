@@ -23,15 +23,33 @@ public class teamCreator implements saveTeam, loadTeam {
 String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab Project\\src\\UI\\team_data.txt";
 
     @Override
-    public void loadTeamFromFile() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'loadTeamFromFile'");
+    public void loadTeamFromFile(Roster roster) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] playerInfo = line.split(",");
+                int index = Integer.parseInt(playerInfo[0]);
+                String playerName = "";
+                if (playerInfo.length > 1) {
+                    playerName = playerInfo[1]; // Set the player name if it exists
+                }
+                roster.addToTeam(index, playerName);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void saveTeamToFile() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveTeamToFile'");
+    public void saveTeamToFile(Roster roster) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (int i = 0; i < roster.getTeamSize(); i++) {
+                String playerName = roster.getSpecificPlayer(i) != null ? roster.getSpecificPlayer(i).getName() : "";
+                writer.write(i + "," + playerName + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void writeToFile(String content) {
@@ -73,7 +91,14 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
         try{
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-
+        System.out.println("Would you like to load a team? (yes/no)");
+        String loadChoice = input.readLine();
+        if (loadChoice.equalsIgnoreCase("yes")) {
+            // If yes, load team and return
+            Roster loadedTeam = new BasketballRoster(); // Just initialize with any type, will be overwritten
+            loadTeamFromFile(loadedTeam);
+            return loadedTeam;
+        }
         
       
         String type = Util.getStringInput("What sport does your team play? (Hockey or Basketball)");
@@ -107,7 +132,10 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             System.out.println(" 's' Set the starting roster");
             System.out.println(" 'v' View the current roster");
             System.out.println(" 'a' Adjust players");
+            System.out.println(" 'o' Save current team");
+            System.out.println(" 'r' Load a team");
             System.out.println(" 'e' Exit the program");
+            
 
        
         
@@ -218,7 +246,13 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             
         }
 
-        
+        if (choice.toLowerCase().equals("o")) {
+            saveTeamToFile(roster);
+        }
+
+        if (choice.toLowerCase().equals("r")) {
+            loadTeamFromFile(roster);
+        }
         
         
         }
