@@ -20,7 +20,12 @@ public class teamCreator implements saveTeam, loadTeam {
 
     //C:\University\Year 3 Semester 2\COSC 210\LAB PROJECT\Lab Project\src\UI\team_data.txt
 
-String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab Project\\src\\UI\\team_data.txt";
+    // Laptop path
+    //String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab Project\\src\\UI\\team_data.txt";
+
+    // Desktop path
+    String filePath = "D:\\School\\COSC 210 Personal lab\\RosterProject\\Lab Project\\src\\Data\\team_data.txt";
+
 
     @Override
     public void loadTeamFromFile(Roster roster) {
@@ -87,7 +92,7 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
 
     public Roster createTeam(){
         
-        Roster Please = null;
+        Roster roster = null;
         try{
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
@@ -97,12 +102,12 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             // If yes, load team and return
             Roster loadedTeam = new BasketballRoster(); // Just initialize with any type, will be overwritten
             loadTeamFromFile(loadedTeam);
-            return loadedTeam;
-        }
+            roster = loadedTeam;
+        }else{
         
       
         String type = Util.getStringInput("What sport does your team play? (Hockey or Basketball)");
-        Roster roster = null;
+        
         if(type.toLowerCase().equals("basketball")){
             System.out.println("You have created a basketball team");
             roster = new BasketballRoster();
@@ -111,10 +116,10 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             System.out.println("You have created a Hockey team");      
             roster =  new HockeyRoster();
         }
-
-
+            roster.establishTeam();
+        }   
         // Creates team and gets current roster
-        roster.establishTeam();
+       
    
             
         boolean running = true;
@@ -133,7 +138,6 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             System.out.println(" 'v' View the current roster");
             System.out.println(" 'a' Adjust players");
             System.out.println(" 'o' Save current team");
-            System.out.println(" 'r' Load a team");
             System.out.println(" 'e' Exit the program");
             
 
@@ -148,10 +152,7 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             roster.getTeam();
         }
 
-        if (choice.toLowerCase().equals("v")){
-            roster.getTeam();
-        }
-        
+
             // e works
         if(choice.toLowerCase().equals("e")){
             System.out.println("Good Bye");
@@ -268,7 +269,7 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
         
     }
         System.out.println("WE ARE DONE");
-        return Please;
+        return roster;
         
         
     }
