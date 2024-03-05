@@ -115,8 +115,12 @@ String filePath = "C:\\University\\Year 3 Semester 2\\COSC 210\\LAB PROJECT\\Lab
             String choice = Util.getStringInput();
             System.out.println("Your choice was: " + choice);
 
-            
+
         if(choice.toLowerCase().equals("v") ){
+            roster.getTeam();
+        }
+
+        if (choice.toLowerCase().equals("v")){
             roster.getTeam();
         }
         
