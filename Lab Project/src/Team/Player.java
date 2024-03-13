@@ -1,4 +1,5 @@
 package Team;
+import java.util.Objects;
 
 public  class Player {
 
@@ -8,6 +9,7 @@ public  class Player {
     public int playerMinutes = 0;
     public String  playerNote = "empty";
     String newLine = System.getProperty("line.separator");
+    private Roster roster;
 
     public Player(){
         this.name = "Not Set";
@@ -22,6 +24,31 @@ public  class Player {
         this.jerseyNum = 0;
         this.playerMinutes = 0;
     }
+
+    public Roster getRoster(){
+        return roster;
+    }
+    
+    public void setRoster(Roster roster){
+        this.roster = roster;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position, jerseyNum); 
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Player other = (Player) obj;
+        return Objects.equals(name, other.name) && Objects.equals(position, other.position)
+                && jerseyNum == other.jerseyNum;
+    }
+
 
  
     public void setName(String newName) {

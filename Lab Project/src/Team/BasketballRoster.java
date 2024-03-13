@@ -39,6 +39,7 @@ public class BasketballRoster extends Roster {
         try {
             String nameToSet = Util.getStringInput("What is the players name?");
             this.team[slot] = new BasketballPlayer(nameToSet);
+            getSpecificPlayer(slot).setRoster(this);
         } catch (Exception e) {
             System.out.println("Error:addToTeam " + e.getMessage());
         }       

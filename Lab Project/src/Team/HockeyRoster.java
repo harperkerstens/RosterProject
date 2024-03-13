@@ -18,6 +18,7 @@ public class HockeyRoster extends Roster {
       try {
             String nameToSet = Util.getStringInput("What is the players name?");
             this.team[slot] = new HockeyPlayer(nameToSet);
+            getSpecificPlayer(slot).setRoster(this);
         } catch (Exception e) {
             System.out.println("Error:addToTeam " + e.getMessage());
         } 
@@ -26,6 +27,7 @@ public class HockeyRoster extends Roster {
     
     public void addToTeam(int rosterSpot, String name){
         this.team[rosterSpot] = new HockeyPlayer(name);
+        getSpecificPlayer(rosterSpot).setRoster(this);
     }
 
     public void establishTeam(){

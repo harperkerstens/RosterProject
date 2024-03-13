@@ -95,7 +95,13 @@ public class Roster {
         
     }
 
-    
+    public void addPlayer(Player player){
+        player.setRoster(this);
+    }
+
+    public void removePlayer(Player player){
+        player.setRoster(null);
+    }
 
 
 
@@ -104,6 +110,7 @@ public class Roster {
              try {
             String nameToSet = Util.getStringInput("What is the players name?");
             this.team[slot] = new Player(nameToSet);
+            getSpecificPlayer(slot).setRoster(this);
         } catch (Exception e) {
             System.out.println("Error:addToTeam " + e.getMessage());
         } 
