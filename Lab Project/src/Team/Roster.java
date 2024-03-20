@@ -105,7 +105,7 @@ public class Roster {
 
 
 
-    
+
     public  void addToTeam(int slot, String name){
              try {
             String nameToSet = Util.getStringInput("What is the players name?");

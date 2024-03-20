@@ -97,16 +97,12 @@ public  class Player {
     }
 
     public String getInfo(){
-        String  toRe = "Player Name: " + this.getName() +  
-        newLine +
-        "Player Position: " + this.getPosition() + 
-        newLine +
-        "Player Jersey Number: " + this.getJerseyNumber() +
-        newLine +
-        "Player Minutes: " + this.getPlayerMinutes() + 
-        newLine +
+        String toRe = "Player Name: " + this.getName() + "\n" +
+        "Player Position: " + this.getPosition() + "\n" +
+        "Player Jersey Number: " + this.getJerseyNumber() + "\n" +
+        "Player Minutes: " + this.getPlayerMinutes() + "\n" +
         "Player Note: " + this.getPlayernote();
-        
+
         return toRe;
     }
     
